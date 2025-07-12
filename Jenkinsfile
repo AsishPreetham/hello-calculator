@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/your-username/hello-calculator.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean install'
+            }
+        }
+
+        stage('Test Results') {
+            steps {
+                junit 'target/surefire-reports/*.xml'
+            }
+        }
+    }
+}
+
