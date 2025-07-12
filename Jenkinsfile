@@ -4,9 +4,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/AsishPreetham/hello-calculator.git'
+                git branch: 'main', url: 'https://github.com/AsishPreetham/hello-calculator.git'
             }
-        }
+    }
+
 
         stage('Build') {
             steps {
